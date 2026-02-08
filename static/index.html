@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindfulAI</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=Lora:ital@0;1&family=Inconsolata&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="background-layer">
+        <div class="breathing-orb" style="width: 50vw; height: 50vw; top: -10%; left: -10%;"></div>
+        <div class="breathing-orb" style="width: 40vw; height: 40vw; bottom: 10%; right: -10%; animation-delay: 2s;">
+        </div>
+        <div id="mouse-follower" class="mouse-follower">
+            <div class="mouse-orb-inner"></div>
+        </div>
+    </div>
+
+    <header class="app-header">
+        <div class="header-card">
+            <div class="logo-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a10 10 0 1 0 10 10 10 10 0 0 0-10-10zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z" />
+                </svg>
+            </div>
+            <div>
+                <h1 style="font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em;">MindfulAI</h1>
+                <p style="font-size: 0.8rem; opacity: 0.6;">AI Psychotherapist</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-grid">
+
+        <aside class="left-sidebar">
+            <div class="glass-panel full-card">
+                <h3
+                    style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem; letter-spacing: 0.1em;">
+                    History</h3>
+                <div style="flex:1; overflow-y:auto;" id="history-list">
+                    <div class="history-item active">Current Session</div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="chat-area scrollbar-hide" id="chat-messages">
+        </section>
+
+        <aside class="right-sidebar">
+            <div class="glass-panel full-card">
+                <h3
+                    style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem; letter-spacing: 0.1em;">
+                    Detailed Analysis</h3>
+
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="font-size: 0.8rem; opacity: 0.6;">Dominant State</p>
+                    <h2 id="dominant-emotion" class="big-emotion">Neutral</h2>
+                    <span id="mode-badge"
+                        style="padding: 0.4rem 1rem; background: rgba(0,0,0,0.04); border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Listening...</span>
+                </div>
+
+                <div class="vertical-bars-container" id="bars-container">
+                </div>
+
+                <button id="download-btn" class="download-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" x2="12" y1="15" y2="3" />
+                    </svg>
+                    Download Report
+                </button>
+            </div>
+        </aside>
+
+    </main>
+
+    <div class="input-container">
+        <form id="chat-form" class="glass-panel floating-form">
+            <button type="button" class="icon-btn mic">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+            </button>
+            <input type="text" id="message-input" class="text-input" placeholder="How are you feeling today?"
+                autocomplete="off">
+            <button type="submit" id="send-btn" disabled class="icon-btn send">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
